@@ -23,7 +23,7 @@ module.exports = React.createClass({
        </div>
        <footer>
          <div className="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-2 grey-50 small medium">
-           &copy; John Morris 
+           &copy; John Morris - <Link to="/cv/"> CV </Link>
          </div>
        </footer>
       </div>

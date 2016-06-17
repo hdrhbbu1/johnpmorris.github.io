@@ -1,8 +1,9 @@
 blockquote {
   border-left: 0.3rem solid #ebebeb;
   margin-left: 0;
-  background: #f6f6f6;
   margin-right: 0;
+  font-style: italic;
+  opacity: 0.5;
   padding: 1rem 1.5rem;
 
   & *:last-child {
