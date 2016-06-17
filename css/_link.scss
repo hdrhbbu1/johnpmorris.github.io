@@ -1,0 +1,18 @@
+a {
+  color: $color-primary;
+  border-bottom: 1px solid currentColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.no-underline {
+ text-decoration: none;
+}
+
+.no-border {
+  border: none;
+}
+

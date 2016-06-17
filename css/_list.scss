@@ -1,0 +1,28 @@
+dl,
+ol,
+ul {
+  margin-top: 0;
+  padding-left: 0;
+
+  dl,
+  ul,
+  ol {
+    font-size: 90%;
+  }
+}
+
+dl {
+  list-style: none;
+}
+
+ul {
+  list-style: circle inside;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+.no-list-style {
+  list-style-type: none;
+}

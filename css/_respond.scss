@@ -1,0 +1,20 @@
+// Responsive
+@mixin r($name) {
+  .#{$name} { @content }
+  @include breakpoint(small)  { .sm-#{$name}.sm-#{$name} { @content } }
+  @include breakpoint(medium) { .md-#{$name}.md-#{$name}.md-#{$name} { @content } }
+  @include breakpoint(large)  { .lg-#{$name}.lg-#{$name}.lg-#{$name}.lg-#{$name} { @content } }
+}
+
+// Breakpoints
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media  (min-width: 64em) { @content }
+  }
+  @else if $point == medium {
+    @media (min-width: 52em) { @content }
+  }
+  @else if $point == small {
+    @media (min-width: 40em) { @content }
+  }
+}

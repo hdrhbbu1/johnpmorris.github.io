@@ -1,0 +1,53 @@
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  margin-top: -0.15em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-color: black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5em 1em 0.4em;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background: black;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover,
+    &:focus {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    border-color: currentColor;
+    &:hover,
+    &:focus {
+      color: $color-primary;
+      background-color: transparent;
+      border-color: $color-primary;
+    }
+  }
+  &.white-hover:hover {
+    color: white;
+    border-color: currentColor;
+  }
+}

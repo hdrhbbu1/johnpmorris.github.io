@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+ <html lang="en" class="grey-10-bg"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title></title><link rel="shortcut icon"/><link rel="stylesheet" href="/styles.css"/></head><body class="grey-60 white-bg min-viewport-height thick-border grey-10-border"><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="1367588097"><div class="absolute t0 l0 padding-l-2 padding-t-1 grow hover-fade" data-reactid="2"><a class="medium grey-95 no-border" href="/" data-reactid="3"><div class="asset-logo-black padding-4" data-reactid="4"> </div></a></div><div class="padding-t-20" data-reactid="5"></div><div class="white-bg container wide-container padding-2 sm-padding-6 sm-padding-t-10" data-reactid="6"><div class="markdown" data-reactid="7"><div class="container" data-reactid="8"><h1 class="grey-95" data-reactid="9">Using vmin and vmax in Internet Explorer 9+</h1><p class="padding-b-5 small grey-50 medium" data-reactid="10"><!-- react-text: 11 -->Javascript<!-- /react-text --><!-- react-text: 12 --> <!-- /react-text --><!-- react-text: 13 -->2015-09-09 05:14 UTC<!-- /react-text --></p><div data-reactid="14"><p>As you probably know if you like using CSS viewport units, the support for them isn’t fantastic.</p>
+<ul>
+<li><code>vmax</code> Isn’t supported in any version of ie or edge.</li>
+<li><code>vmin</code> Isn’t supported in ie9</li>
+</ul>
+<br>
+<h2>The CSS Viewport Units</h2>
+<ul>
+<li><code>vw</code>: 1/100th viewport width</li>
+<li><code>vh</code>: 1/100th viewport height</li>
+<li><code>vmin</code>: 1/100th of the smallest side</li>
+<li><code>vmax</code>: 1/100th of the largest side</li>
+</ul>
+<p>Note: IE9 uses <code>vm</code> instead of <code>vmin</code>. It does not support <code>vmax</code>.</p>
+<br>
+<h2>The CSS Viewport Units in Javascript</h2>
+<ul>
+<li><code>var vw = window.innerWidth / 100</code></li>
+<li><code>var vh = window.innerHeight / 100</code></li>
+<li><code>var vmin = Math.min(vw, vh)</code></li>
+<li><code>var vmax = Math.max(vw, vh)</code></li>
+</ul>
+<br>
+<h3>Setting your <code>html</code> font-size to a viewport unit and using em values everywhere, results in ridiculously responsive web pages</h3>
+<br>
+in *CSS:*
+<pre><code class="language-css"><span class="hljs-comment">/* Can't set the rem value to a viewpoint unit */</span>
+
+<span class="hljs-selector-class">.mySelector</span> { 
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">calc</span>( 2vmin + 1.4vmax + 2vh ); 
+}
+</code></pre>
+<br>
+<p>The same thing in javascript.</p>
+<pre><code class="language-js"><span class="hljs-comment">// but with javascript you can!</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSize</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> vw   = <span class="hljs-built_in">window</span>.innerWidth / <span class="hljs-number">100</span>
+  <span class="hljs-keyword">var</span> vh   = <span class="hljs-built_in">window</span>.innerHeight / <span class="hljs-number">100</span>
+  <span class="hljs-keyword">var</span> vmin = <span class="hljs-built_in">Math</span>.min(vw, vh)
+  <span class="hljs-keyword">var</span> vmax = <span class="hljs-built_in">Math</span>.max(vw, vh)
+  <span class="hljs-built_in">document</span>.documentElement.style.fontSize =  (( vmin * <span class="hljs-number">2</span> ) + ( vmax * <span class="hljs-number">1.4</span> ) + ( vh * <span class="hljs-number">2</span> ))  + <span class="hljs-string">"px"</span>;
+}
+
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"resize"</span>, setSize);
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">"DOMContentLoaded"</span>, setSize);
+</code></pre>
+</div></div></div></div><footer data-reactid="15"><div class="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-2 grey-50 small medium" data-reactid="16"><!-- react-text: 17 -->© John Morris<!-- /react-text --><span class="white" data-reactid="18"> — </span><!-- react-text: 19 -->hello@johnm.io<!-- /react-text --><span class="white" data-reactid="20"> — </span><!-- react-text: 21 -->@johnm__<!-- /react-text --></div></footer></div></div><script src="/bundle.js"></script></body></html>

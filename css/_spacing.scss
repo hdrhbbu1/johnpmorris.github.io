@@ -1,0 +1,55 @@
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem;
+}
+
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem;
+}
+
+@for $i from 0 through 20 {
+  //padding classes 
+  @include r(padding-#{$i}) {
+    padding: #{$i / 2}em
+  }
+  @include r(padding-t-#{$i}) {
+    padding-top: #{$i / 2}em;
+  }
+  @include r(padding-b-#{$i}) {
+    padding-bottom: #{$i /2}em;
+  }
+  @include r(padding-l-#{$i}) {
+    padding-left: #{$i / 2}em; 
+  }
+  @include r(padding-r-#{$i}) {
+    padding-right: #{$i / 2}em;
+  }
+
+  //margin classes
+  @include r(margin-#{$i}) {
+    margin: #{$i / 2}em;
+  }
+  @include r(margin-t-#{$i}) {
+    margin-top: #{$i / 2}em;
+  }
+  @include r(margin-b-#{$i}) {
+    margin-bottom: #{$i /2}em;
+  }
+  @include r(margin-l-#{$i}) {
+    margin-left: #{$i / 2}em; 
+  }
+  @include r(margin-r-#{$i}) {
+    margin-right: #{$i / 2}em;
+  }
+}
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+ <html lang="en" class="grey-10-bg"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title></title><link rel="shortcut icon"/><link rel="stylesheet" href="/styles.css"/></head><body class="grey-60 white-bg min-viewport-height thick-border grey-10-border"><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-395468121"><div class="absolute t0 l0 padding-l-2 padding-t-1 grow hover-fade" data-reactid="2"><a class="medium grey-95 no-border" href="/" data-reactid="3"><div class="asset-logo-black padding-4" data-reactid="4"> </div></a></div><div class="padding-t-20" data-reactid="5"></div><div class="white-bg container wide-container padding-2 sm-padding-6 sm-padding-t-10" data-reactid="6"><div class="markdown" data-reactid="7"><div class="container" data-reactid="8"><h1 class="grey-95" data-reactid="9">Hamburgler - Deliciously simple mobile navigation</h1><p class="padding-b-5 small grey-50 medium" data-reactid="10"><!-- react-text: 11 --> <!-- /react-text --></p><div data-reactid="12"><ol>
+<li>Just give this code the ol’ copy-paste-a-roo just after your opening <code>body</code> tag.</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-comment">&lt;!-- The Icon --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hamburgler"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-icon-wrapper"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- The Navigation --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-nav"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> Never <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> Gonna <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> Give <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> You <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> up <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> 
+</code></pre>
+<br>
+<ol start="2">
+<li>Paste this script just before your closing <code>html</code> tag.</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">var</span> navToggle = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hamburgler'</span>);
+  navToggle.addEventListener(<span class="hljs-string">'click'</span>, checkNav);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkNav</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (navToggle.classList.contains(<span class="hljs-string">'active'</span>)){
+      closeNav();
+    }
+    <span class="hljs-keyword">else</span> {
+      openNav();
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">closeNav</span>(<span class="hljs-params"></span>) </span>{
+    navToggle.classList.remove(<span class="hljs-string">'active'</span>);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openNav</span>(<span class="hljs-params"></span>) </span>{
+    navToggle.classList.add(<span class="hljs-string">'active'</span>);
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<br>
+<ol start="3">
+<li>Paste inside the <code>head</code> of your html.</li>
+</ol>
+</div></div></div></div><footer data-reactid="13"><div class="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-2 grey-50 small medium" data-reactid="14"><!-- react-text: 15 -->© John Morris<!-- /react-text --><span class="white" data-reactid="16"> — </span><!-- react-text: 17 -->hello@johnm.io<!-- /react-text --><span class="white" data-reactid="18"> — </span><!-- react-text: 19 -->@johnm__<!-- /react-text --></div></footer></div></div><script src="/bundle.js"></script></body></html>

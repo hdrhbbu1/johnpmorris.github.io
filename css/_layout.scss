@@ -1,0 +1,72 @@
+.container {
+  margin: 0 auto;
+  max-width: 52rem;
+  position: relative;
+  width: 100%;
+
+  &.wide-container {
+    max-width: 110rem;
+  }
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+@include r(hide) {
+  display: none;
+}
+
+@include r(show) {
+  display: block;
+}
+
+.mobile-hide {
+  @media  (max-width: 40em) {
+    display: none;
+  }
+}
+
+.mobile-show {
+  @media  (min-width: 40em) {
+    display: none;
+  }
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.min-viewport-height {
+  min-height: 100vh;
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
