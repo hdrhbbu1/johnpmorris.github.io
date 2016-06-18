@@ -23,7 +23,17 @@ module.exports = React.createClass({
        </div>
        <footer>
          <div className="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-2 grey-50 small medium">
-           &copy; John Morris - <Link to="/cv/"> CV </Link>
+           &copy; John Morris 
+           <span className="float-right grey-25">
+             Made in&nbsp; 
+             <a target="_blank" className="grey-25" href="https://facebook.github.io/react/">React</a>
+             &nbsp;with&nbsp;
+             <a target="_blank" className="grey-25" href="https://github.com/gatsbyjs/gatsby">Gatsby</a>
+             &nbsp;-&nbsp;
+             <a target="_blank" className="grey-50" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild">
+               View Source
+             </a> 
+          </span>
          </div>
        </footer>
       </div>

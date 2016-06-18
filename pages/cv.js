@@ -9,11 +9,11 @@ export default class Sass extends React.Component {
     return (
       <div>
         <DocumentTitle title={ 'Johnm - Curriculum Vitae - Designer, Thinker, Maker.' }></DocumentTitle>
-        <div className="container wide-container grey-95 padding-b-5 sm-padding-b-20">
+        <div className="container wide-container grey-95 padding-b-5">
           <h1 className="margin-b-8"> Cirriculum Vitae </h1>
           <div className="row sm-row">
             <div className="column sm-column-50 lg-column-40 sm-padding-r-6">
-              <p className="medium border-bottom">Experience</p>
+              <p className="medium border-bottom serif italic">Experience</p>
               <p className="grey-95">
                 <span className="block margin-t-5">Design lead / Front end</span>
                 <span className="medium small grey-50">Outfit - 2015 - current</span>
@@ -35,7 +35,7 @@ export default class Sass extends React.Component {
               </p>
             </div>
             <div className="column sm-column-50 lg-column-40 sm-padding-r-6">
-              <p className="medium border-bottom">Education</p>
+              <p className="medium border-bottom serif italic">Education</p>
               <p className="grey-95">
                 <span className="block margin-t-5">Diploma of Graphic Design</span>
                 <span className="medium small grey-50">2012 - 2014</span>
@@ -45,7 +45,7 @@ export default class Sass extends React.Component {
               </p>
             </div>
             <div className="column padding-t-10 lg-padding-t-0">
-              <p className="medium border-bottom">Strengths</p>
+              <p className="medium border-bottom serif italic">Strengths</p>
               <ul className="no-list-style">
                 <li className="margin-b-1 padding-t-2">Design Thinking</li>
                 <li className="margin-b-1">CSS - sass, less, stylus</li>
@@ -58,7 +58,7 @@ export default class Sass extends React.Component {
               </ul>
             </div>
           </div>
-          <p className="medium border-bottom padding-t-12 margin-b-0">References</p>
+          <p className="medium border-bottom padding-t-12 margin-b-0 serif italic medium">References</p>
           <div className="row sm-row">
             <div className="column lg-column-50 sm-padding-r-6">
               <span className="block medium margin-t-5"> Chris Daley </span>

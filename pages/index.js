@@ -11,7 +11,7 @@ export default class Sass extends React.Component {
         <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
         <div className="container grey-95 padding-b-5 sm-padding-b-20">
           <h1>I use colours, letters and pictures to help people understand things. </h1> 
-          <p className="italic"> 
+          <p className="italic serif"> 
             Don't hesitate to 
             <Link className="italic margin-l-1" to={prefixLink('contact/')}>Get in touch </Link>
           </p>
@@ -48,7 +48,7 @@ export default class Sass extends React.Component {
             <p className="small">CSS - Mar 22</p>
           </div>
 
-          <div className="column padding-t-5 sm-padding-t-0">
+          <div className="column padding-t-5 sm-padding-t-0 right">
             <p className="margin-b-1 medium"><a target="_blank" href="http://dribbble.com/johnm__/">Dribbble</a></p>
             <p className="margin-b-1 medium"><a target="_blank" href="http://instagram.com/johnm__/">Instagram</a></p>
             <p className="margin-b-1 medium"><a target="_blank" href="http://twitter.com/johnm__/">Twitter</a></p>
