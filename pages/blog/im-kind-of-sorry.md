@@ -1,23 +1,20 @@
 ---
-
 title: I'm Sorry (Kind of).
-date: 2015-09-08 09:56 UTC
-layout: blog
+date: September 8th 2015
 category: User Experience
-
 ---
 
 About a year ago, barely knowing enough jQuery to cobble together something that works after countless hours were wasted rummaging through stack overflow, I created <a href="/projects/hamburgler">hamburgler</a>, a 'Deliciously Simple' and easy to implement mobile menu
 
-![100percent](blog/hamburgler.gif)
+<img alt="hamburgler demo" src="/images/hamburgler.gif" class="full-width padding-b-2"> 
 
 The reason behind making it was firstly, to see if I actually could, and secondly because our instructor made a complete meal out of using a shitty clunky jQuery menu in front of the class, and after a few hours failing to find an easy one to use, I felt like helping them out by creating my own.
 
 Since then I have noticed it turning up across a number of portfolios and landing pages, including a site of the day on awwwards, and thats awesome, but...
 
-###It reaaallly annoys me.
+<br> 
 
-<br>
+### It reaaallly annoys me.
 
 Another year older and wiser and now doing front end development and designing Ui full time, has made me conscious of how using something like hamburger icons (or hiding your navigation behind a 'menu' button) can have a quite a significant negative impact on the way people navigate. Not just that, but having to include jQuery for one event listener is something I'm not too proud of either.
 
@@ -45,5 +42,5 @@ Don't let me stop you from using it if you really want to of course, and if its 
 
 <br>
 
-I might make a jQuery free version some day, or a css only version if I hate myself enough 🍔
+I might make a jQuery free version some day.
 

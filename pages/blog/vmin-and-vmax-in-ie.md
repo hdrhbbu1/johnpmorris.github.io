@@ -1,5 +1,5 @@
 ---
-title: Using vmin and vmax in Internet Explorer 9+
+title: Using vmin and vmax in ie
 date: September 9th 2015
 category: Javascript
 layout: blog
