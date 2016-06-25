@@ -1,6 +1,6 @@
 ---
 title: 5 handy css generators
-date: 2015-03-22 02:38 UTC
+date: March 22nd 2015
 layout: blog
 category: CSS
 
@@ -16,8 +16,14 @@ Have you ever wanted to use some super cool CSS3 magic but were detered by how a
 
 <br> 
 
-#### [2. CSS Animation Generator](https://coveloping.com/tools/css-animation-generator) 
-CSS animations and keyframes are great, but sometimes it gets really annoying having to write out the same basic keyframes again and again. With similar animations to [Dan Eden's Animate.css](http://daneden.github.io/animate.css/) this generator just spits out the CSS of the animation you want instead of including a stylesheet, all you need to do is change a class name.
+<div class="grey-25">
+  <del><h4><a class="grey-25" href="https://coveloping.com/tools/css-animation-generator">2. CSS Animation Generator</a></h4></del> 
+  <del>CSS animations and keyframes are great, but sometimes it gets really annoying having to write out the same basic keyframes again and again. With similar animations to [Dan Eden's Animate.css](http://daneden.github.io/animate.css/) this generator just spits out the CSS of the animation you want instead of including a stylesheet, all you need to do is change a class name.</del> 
+</div>
+
+<br>
+
+^ This is now something like $14 a month which is complete horseshit considering its just stolen from `animate.css`, use that instead. [Dan Eden's Animate.css](http://daneden.github.io/animate.css/).  
 
 <br>
 

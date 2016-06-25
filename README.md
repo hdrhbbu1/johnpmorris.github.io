@@ -14,7 +14,7 @@ npm install -g gatsby
 **clone the repo**
 
 ```
-git@github.com:johnpmorris/johnpmorris.github.io.git
+git clone git@github.com:johnpmorris/johnpmorris.github.io.git
 ```
 
 **install dependencies**
