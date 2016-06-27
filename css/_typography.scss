@@ -37,15 +37,15 @@ code, pre  {
 }
 
 //aligns
-.right {
+@include r(right) {
   text-align: right;
 }
 
-.left {
+@include r(left) {
   text-algin: left;
 }
 
-.center {
+@include r(center) {
   text-align: center;
 }
 

@@ -35,6 +35,9 @@
 .thick-border {
   border-width: 2em;
   border-style: solid;
+  @media (max-width: 40em) {
+    border: none;
+  }
 }
 
 .hover-fade:hover {

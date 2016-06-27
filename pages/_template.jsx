@@ -18,19 +18,19 @@ module.exports = React.createClass({
         </Link>
       </div>
       <div className="padding-t-10 sm-padding-t-20"></div>
-      <div className="white-bg container wide-container padding-2 sm-padding-6 sm-padding-t-10">
+      <div className="white-bg container wide-container padding-2 padding-t-6 sm-padding-6 sm-padding-t-10">
          {this.props.children}
        </div>
        <footer>
-         <div className="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-2 grey-50 small medium">
+         <div className="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-3 grey-50 small medium">
            &copy; John Morris 
-           <span className="float-right grey-25">
+           <span className="block padding-t-3 sm-padding-t-0 sm-float-right grey-25">
              Made in&nbsp; 
-             <a target="_blank" className="grey-25" href="https://facebook.github.io/react/">React</a>
+             <a target="_blank" className="grey-25 external-link" href="https://facebook.github.io/react/">React</a>
              &nbsp;with&nbsp;
-             <a target="_blank" className="grey-25" href="https://github.com/gatsbyjs/gatsby">Gatsby</a>
+             <a target="_blank" className="grey-25 external-link" href="https://github.com/gatsbyjs/gatsby">Gatsby</a>
              &nbsp;-&nbsp;
-             <a target="_blank" className="grey-50" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild">
+             <a target="_blank" className="grey-50 external-link" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild">
                View Source
              </a> 
           </span>

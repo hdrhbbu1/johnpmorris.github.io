@@ -9,7 +9,7 @@
   }
 }
 
-.block {
+@include r(block) {
   display: block;
 }
 
@@ -19,6 +19,10 @@
 
 .inline {
   display: inline;
+}
+
+.hide, .hidden, .none {
+  display: none;
 }
 
 @include r(hide) {
@@ -45,7 +49,7 @@
   vertical-align: middle;
 }
 
-.float-right {
+@include r(float-right) {
   float: right;
 }
 

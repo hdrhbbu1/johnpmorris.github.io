@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+ <html lang="en" class="grey-10-bg"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title>Johnm  - Hamburgler - Deliciously simple mobile navigation 🍔 - Designer, Thinker, Maker. </title><link rel="shortcut icon" href="/favicon.ico"/><link rel="stylesheet" href="/styles.css"/></head><body class="grey-60 white-bg min-viewport-height thick-border grey-10-border"><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="2116899842"><div class="absolute t0 l0 padding-l-2 padding-t-1 grow" data-reactid="2"><a class="medium grey-95 no-border" href="/" data-reactid="3"><div class="asset-logo-black padding-4" data-reactid="4"> </div></a></div><div class="padding-t-10 sm-padding-t-20" data-reactid="5"></div><div class="white-bg container wide-container padding-2 padding-t-6 sm-padding-6 sm-padding-t-10" data-reactid="6"><div class="markdown" data-reactid="7"><div class="container" data-reactid="8"><!-- react-empty: 9 --><h1 class="grey-95 " data-reactid="10">Hamburgler - Deliciously simple mobile navigation 🍔</h1><p class="padding-b-5 small grey-50 medium" data-reactid="11"><!-- react-text: 12 --><!-- /react-text --></p><div data-reactid="13"><p>Deliciously simple mobile navigation in 4 easy steps. <br>
+No longer relient on jQuery 🙌.</p>
+<p><a href="http://codepen.io/Johnm__/pen/OMqMmN">View codepen demo</a></p>
+<br>
+<br>
+<ol>
+<li>Just give this code the ol’ copy-paste-a-roo just after your opening <code>&lt;body&gt;</code> tag.</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-menu"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-menu-list"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>never<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>gonna<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>give<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>you<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>up<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hamburgler"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-icon-wrapper"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hamburgler-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<br>
+<ol start="2">
+<li>Paste this script just before your closing <code>&lt;/body&gt;</code> tag.</li>
+</ol>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'hamburgler'</span>).addEventListener(<span class="hljs-string">'click'</span>, checkNav);
+  <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"keyup"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e.keyCode == <span class="hljs-number">27</span>) closeNav();
+  }, <span class="hljs-literal">false</span>);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkNav</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.classList.contains(<span class="hljs-string">'hamburgler-active'</span>)) {
+      closeNav();
+    } <span class="hljs-keyword">else</span> {
+      openNav();
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">closeNav</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">document</span>.body.classList.remove(<span class="hljs-string">'hamburgler-active'</span>);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openNav</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">document</span>.body.classList.add(<span class="hljs-string">'hamburgler-active'</span>);
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<br>
+<ol start="3">
+<li>Paste inside the <code>&lt;head&gt; &lt;/head&gt;</code> of your html. <br> (or inlcude it in your stylesheets)</li>
+</ol>
+<pre><code class="language-css"><span class="hljs-selector-class">.hamburgler-icon-wrapper</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">1em</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">1em</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">26px</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">26px</span>;
+  <span class="hljs-attribute">cursor</span>: pointer
+}
+
+<span class="hljs-selector-class">.hamburgler-icon</span>,
+<span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:before</span>,
+<span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">1em</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">2px</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">26px</span>;
+  <span class="hljs-attribute">background</span>: black;
+  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.2s</span> ease
+}
+
+<span class="hljs-selector-class">.hamburgler-icon</span> {
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0.75em</span>
+}
+
+<span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:before</span> {
+  <span class="hljs-attribute">top</span>: -<span class="hljs-number">0.55em</span>
+}
+
+<span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0.55em</span>
+}
+
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span> {
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(-135deg)
+}
+
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:before</span>,
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>
+}
+
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:before</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(90deg)
+}
+
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span>,
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:before</span>,
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-icon</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">background</span>: white
+}
+
+<span class="hljs-selector-class">.hamburgler-menu</span> {
+  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.4s</span> ease;
+  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">pointer-events</span>: none;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.9);
+  <span class="hljs-attribute">color</span>: white;
+  <span class="hljs-attribute">text-align</span>: center
+}
+
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-menu</span> {
+  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">pointer-events</span>: initial;
+}
+
+<span class="hljs-selector-class">.hamburgler-menu-list</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.4s</span> ease;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">list-style-type</span>: none;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-50%, -50%) <span class="hljs-built_in">scale</span>(1.2)
+}
+
+<span class="hljs-selector-class">.hamburgler-active</span> <span class="hljs-selector-class">.hamburgler-menu-list</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-50%, -50%) <span class="hljs-built_in">scale</span>(1)
+}
+</code></pre>
+<ol start="4">
+<li>booyah.</li>
+</ol>
+<br> 
+<h3>Fastclick?</h3>
+<p>Hamburgler works even better when you have <a href="https://github.com/ftlabs/fastclick">fastclick</a> on your website, It disables the .3s delay clicking links on a mobile device making everything seem snappier.</p>
+</div></div></div></div><footer data-reactid="14"><div class="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-3 grey-50 small medium" data-reactid="15"><!-- react-text: 16 -->© John Morris<!-- /react-text --><span class="block padding-t-3 sm-padding-t-0 sm-float-right grey-25" data-reactid="17"><!-- react-text: 18 -->Made in <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://facebook.github.io/react/" data-reactid="19">React</a><!-- react-text: 20 --> with <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://github.com/gatsbyjs/gatsby" data-reactid="21">Gatsby</a><!-- react-text: 22 --> - <!-- /react-text --><a target="_blank" class="grey-50 external-link" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild" data-reactid="23">View Source</a></span></div></footer></div></div><script src="/bundle.js"></script></body></html>

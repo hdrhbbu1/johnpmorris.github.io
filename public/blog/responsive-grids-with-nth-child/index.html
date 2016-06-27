@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+ <html lang="en" class="grey-10-bg"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title>Johnm  - Flexbox style grids with nth-child Magic. - Designer, Thinker, Maker. </title><link rel="shortcut icon" href="/favicon.ico"/><link rel="stylesheet" href="/styles.css"/></head><body class="grey-60 white-bg min-viewport-height thick-border grey-10-border"><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="1923779717"><div class="absolute t0 l0 padding-l-2 padding-t-1 grow" data-reactid="2"><a class="medium grey-95 no-border" href="/" data-reactid="3"><div class="asset-logo-black padding-4" data-reactid="4"> </div></a></div><div class="padding-t-10 sm-padding-t-20" data-reactid="5"></div><div class="white-bg container wide-container padding-2 padding-t-6 sm-padding-6 sm-padding-t-10" data-reactid="6"><div class="markdown" data-reactid="7"><div class="container" data-reactid="8"><!-- react-empty: 9 --><h1 class="grey-95 " data-reactid="10">Flexbox style grids with nth-child Magic.</h1><p class="padding-b-5 small grey-50 medium" data-reactid="11"><!-- react-text: 12 -->CSS<!-- /react-text --><!-- react-text: 13 --> - <!-- /react-text --><!-- react-text: 14 -->April 9th 2015<!-- /react-text --></p><div data-reactid="15"><p>I was shown a <a href="http://alistapart.com/article/quantity-queries-for-css">really interesting article</a> a few weeks ago explaining how to do ‘quantity queries’ ( think of them like media queries but based on how much content you have )
+using last, first and nth child pseudo-classes.</p>
+<p>Some pretty cool uses of using psuedo-classes in order to style your layout. include the the ability to change your navigation’s styling based on how many items it has, this would be super useful to anyone that makes websites for clients to edit with a CMS. Lets say you have a traditional nav bar, but don’t want there to ever be more than four items in it because it would line break. nth child would give you the option to say if there is more than four items, hide the nav behind a ‘show navigation’ button.</p>
+<p>Another cool use of nth and last child selectors are what I’m writing about today, making a cool flexbox style responsive grid.</p>
+<div class="demo">
+  <ul>
+    <li>
+      <a class="add" href="javascript:void(0)">+ add a div</a>
+    </li> <li>
+      <a class="remove" href="javascript:void(0)">- remove a div</a>
+    </li>
+  </ul>
+<pre><code>&lt;div class=&quot;wrapper&quot;&gt;
+&lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+<div style="padding-bottom:20px;float:none;clear:both;"></div>
+<style type="text/css">
+
+.demo {
+padding-bottom:40px;
+margin-left:-10px;
+margin-right:-10px;
+}
+.demo ul {
+  list-style-type: none;
+  padding: 10px;
+}
+.demo li {
+  display: inline;
+  margin-right: 20px;
+}
+.demo a {
+  text-decoration: none !important;
+  color: red;
+}
+.demo .item {
+  position: relative;
+  float: left;
+  width: calc(33.33% - 20px);
+  height: 100px;
+  background: lightgrey;
+  margin: 10px;
+}
+.demo .item:before {
+  content: '33.33%';
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translatey(40%);
+  -webkit-transform: translatey(40%);
+}
+.demo .item:hover:before {
+  color: white;
+}
+.demo .item:hover {
+  background-color: red;
+  cursor: pointer;
+}
+.demo .item:nth-child(3n+1):last-child {
+  width: calc(100% - 20px);
+}
+.demo .item:nth-child(3n+1):last-child:before {
+  content: '100%' !important;
+}
+.demo .item:nth-child(3n+2):last-child {
+  width: calc(66.66% - 20px);
+}
+.demo .item:nth-child(3n+2):last-child:before {
+  content: '66.66%' !important;
+}
+
+</style>
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+  $(".add").click(function () {
+      $( ".wrapper" ).append( "<div class='item'></div>" );
+});
+
+$(".remove").click(function () {
+      $( ".item:last" ).remove();
+});
+
+});
+
+</script>
+<p>You can see the grid in action above, or see a finished product on <a href="http://www.codeschool.com.au" target="blank"> codeschool.com.au </a>, the size of the last child always scales to fill any extra space. We also use an <code>nth-child</code> grid for the template previews in <a href="http://www.useoutfit.com" target="blank"> outfit </a> using the same technique covered in the article I linked earlier.</p>
+<br>
+<h3>First<sup>child</sup> things first.</h3>
+<p>I’m sure everyone reading this knows what <code>:last-child</code> and <code>:first-child</code> are, but for the sake of the less experienced with css selectors, I’ll go over it.</p>
+<p><code>:first-child</code> is a pseudo-class that targets the first child of its parent</p>
+<p>for example:</p>
+<pre><code>      &lt;style&gt;
+  li:first-child {
+    color:red;
+  }
+&lt;/style&gt;
+
+&lt;div&gt;
+  &lt;li&gt; first child &lt;/li&gt;
+  &lt;li&gt; list item &lt;/li&gt;
+  &lt;li&gt; list item &lt;/li&gt;
+  &lt;li&gt; list item &lt;/li&gt;
+  &lt;li&gt; last child &lt;/li&gt;
+&lt;/div&gt;
+</code></pre>
+<p>would produce</p>
+<style>
+.example1:first-child {
+color:red;
+}
+</style>
+<div>
+<li class="example1"> first child</li>
+<li class="example1"> list item </li>
+<li class="example1"> list item </li>
+<li class="example1"> list item </li>
+<li class="example1"> last child </li>
+</div>
+<p>because the first <code>&lt;li&gt;</code> is the first one in the parent div.</p>
+<p>Alternatively, using <code>:last-child</code> would have a similar effect.</p>
+<style>
+.example2:last-child {
+color:red;
+}
+</style>
+<div>
+<li class="example2"> first child</li>
+<li class="example2"> list item </li>
+<li class="example2"> list item </li>
+<li class="example2"> list item </li>
+<li class="example2"> last child </li>
+</div>
+<br>
+<h3>Now that thats out of the way, onto the nth child.</h3>
+<p>Similar to first and last child selectors <code>:nth-child</code> is a way to select every element that matches the value of <em>‘n’</em></p>
+<p>for example, <code>:nth-child(2)</code> would select the second child of the parent element.</p>
+<pre><code>      li:nth-child(2) {
+  color:red;
+}
+</code></pre>
+<style>
+.example3:nth-child(2) {
+color:red;
+}
+</style>
+<div>
+<li class="example3"> first child</li>
+<li class="example3"> list item </li>
+<li class="example3"> list item </li>
+<li class="example3"> list item </li>
+<li class="example3"> last child </li>
+</div>
+<p>Becuase we can use formulas as the <em>‘n’</em> value, instead of targeting just the second child, we can change <code>(2)</code> to <code>(2n)</code> and target <em>every second</em> child like this:</p>
+<pre><code>      li:nth-child(2n) {
+  color:red;
+}
+</code></pre>
+<style>
+.example4:nth-child(2n) {
+color:red;
+}
+</style>
+<div>
+<li class="example4"> first child</li>
+<li class="example4"> list item </li>
+<li class="example4"> list item </li>
+<li class="example4"> list item </li>
+<li class="example4"> last child </li>
+</div>
+<p>If we combine this with <code>:last-child</code> we can target every second child but only if it is the last child of its parent.</p>
+<style>
+.example5:nth-child(2n):last-child {
+color:red;
+}
+</style>
+<div>
+<li class="example5"> first child</li>
+<li class="example5"> list item </li>
+<li class="example5"> list item </li>
+<li class="example5"> list item </li>
+<li class="example5"> last child </li>
+</div>
+<p>As you can see, none of the children we were targeting were the last child of its parent, so none of them are affected. If we removed one of the items so a multiple of two was in fact the last child of its parent you would see that child being targeted by our css.</p>
+<div>
+<li class="example5"> first child</li>
+<li class="example5"> list item </li>
+<li class="example5"> list item </li>
+<li class="example5"> list item </li>
+</div>
+<p>This is how our grid layout will work. We will use code like this to apply specific css to the last child based on how many children the parent has.</p>
+<p>Here’s an example of our css</p>
+<pre><code>      .li:nth-child(2n):last-child {
+  color:red;
+}
+
+/* the child after every second child. */
+
+.li:nth-child(2n+1):last-child {
+  color:green;
+}
+</code></pre>
+<style>
+.example6:nth-child(2n):last-child {
+color:red;
+}
+.example6:nth-child(2n+1):last-child {
+color:green;
+}
+</style>
+<div style="padding-top:20px;">
+<li class="example6"> first child</li>
+<li class="example6"> list item </li>
+</div>
+<div style="padding-top:20px;">
+<li class="example6"> first child</li>
+<li class="example6"> list item </li>
+<li class="example6"> list item </li>
+</div>
+<div style="padding-top:20px;">
+<li class="example6"> first child</li>
+<li class="example6"> list item </li>
+<li class="example6"> list item </li>
+<li class="example6"> list item </li>
+</div>
+<p>Our grid will work exactly like this, but it will change the width of the last child instead of the color.</p>
+<br>
+<h3>Ok, Lets get started.</h3>
+<p>I’m going to start out by creating three divs inside a parent div. and setting each of their widths to 33.33%.</p>
+<p data-height="350" data-theme-id="0" data-slug-hash="LEKxqZ" data-default-tab="result" data-user="Johnm__" class='codepen'>See the Pen <a href='http://codepen.io/Johnm__/pen/LEKxqZ/'>LEKxqZ</a> by John Morris (<a href='http://codepen.io/Johnm__'>@Johnm__</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<h3>Now onto the magic stuff.</h3>
+<p>If I added another div right now, it would stack under the three divs and would only be 33% wide, leaving a big awkward 66% wide white space on the right of it.</p>
+<p>Because our grid is 3 children wide and we wan’t to target the last child if its one after the last group of three, I’m going to use
+<code>:nth-child(3n+1):last-child</code> to target that div and set its width to 100%</p>
+<p data-height="350" data-theme-id="0" data-slug-hash="EaBZmB" data-default-tab="result" data-user="Johnm__" class='codepen'>See the Pen <a href='http://codepen.io/Johnm__/pen/EaBZmB/'>EaBZmB</a> by John Morris (<a href='http://codepen.io/Johnm__'>@Johnm__</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p>Im going to do the same thing but change <code>3n+1</code>
+to <code>3n+2</code> to target the last child if there were two children after the last <code>3n</code> and set it’s width to 66%</p>
+<p data-height="350" data-theme-id="0" data-slug-hash="pvXQYq" data-default-tab="result" data-user="Johnm__" class='codepen'>See the Pen <a href='http://codepen.io/Johnm__/pen/pvXQYq/'>Example three</a> by John Morris (<a href='http://codepen.io/Johnm__'>@Johnm__</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p>There you have it.
+A grid that is aware of how many items it has and styles its self accordingly.</p>
+<p><a href="https://twitter.com/share" class="twitter-share-button" data-via="Johnm__">Tweet</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div></div></div></div><footer data-reactid="16"><div class="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-3 grey-50 small medium" data-reactid="17"><!-- react-text: 18 -->© John Morris<!-- /react-text --><span class="block padding-t-3 sm-padding-t-0 sm-float-right grey-25" data-reactid="19"><!-- react-text: 20 -->Made in <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://facebook.github.io/react/" data-reactid="21">React</a><!-- react-text: 22 --> with <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://github.com/gatsbyjs/gatsby" data-reactid="23">Gatsby</a><!-- react-text: 24 --> - <!-- /react-text --><a target="_blank" class="grey-50 external-link" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild" data-reactid="25">View Source</a></span></div></footer></div></div><script src="/bundle.js"></script></body></html>

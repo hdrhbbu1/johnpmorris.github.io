@@ -20,7 +20,7 @@ export default class Sass extends React.Component {
           <div className="column sm-column-40 sm-padding-r-6">
             <p className="medium grey-95"> Things I've Made </p>
 
-            <a className="medium" href="http://noat.me" target="_blank">Noat</a>
+            <a className="medium external-link" href="http://noat.me" target="_blank">Noat</a>
             <p className="small"> A barebones note taking / to-do list app.</p>
 
             <a className="medium" href={prefixLink('readdit')}>Readdit</a>
@@ -29,7 +29,7 @@ export default class Sass extends React.Component {
             <Link className="medium" to={prefixLink('project/hamburgler/')}>Hamburgler</Link>
             <p className="small">A simple easy to implement hamburger menu.</p>
 
-            <a className="medium" href="http://crandberry.co">Crandberry Co</a>
+            <a className="medium external-link" target="blank" href="http://instagram.com/crandberry.co">Crandberry Co</a>
             <p className="small">A social media project about hand lettering and typography.</p>
           </div>
 
@@ -48,13 +48,13 @@ export default class Sass extends React.Component {
             <p className="small">CSS - Mar 22</p>
           </div>
 
-          <div className="column padding-t-5 sm-padding-t-0 right">
-            <p className="margin-b-1 medium"><a target="_blank" href="http://dribbble.com/johnm__/">Dribbble</a></p>
-            <p className="margin-b-1 medium"><a target="_blank" href="http://instagram.com/johnm__/">Instagram</a></p>
-            <p className="margin-b-1 medium"><a target="_blank" href="http://twitter.com/johnm__/">Twitter</a></p>
-            <p className="margin-b-1 medium"><a target="_blank" href="http://github.com/johnpmorris">Github</a></p>
-            <p className="margin-b-1 medium"><a target="_blank" href="http://codepen.io/Johnm__/">Codepen</a></p>
-            <p className="margin-b-1 medium"><a target="_blank" href="http://www.linkedin.com/in/johnphilipmorris">Email spam</a></p>
+          <div className="column padding-t-6 padding-b-6 sm-padding-t-0 sm-right">
+            <p className="margin-b-1 medium external-link"><a target="_blank" href="http://dribbble.com/johnm__/">Dribbble</a></p>
+            <p className="margin-b-1 medium external-link"><a target="_blank" href="http://instagram.com/johnm__/">Instagram</a></p>
+            <p className="margin-b-1 medium external-link"><a target="_blank" href="http://twitter.com/johnm__/">Twitter</a></p>
+            <p className="margin-b-1 medium external-link"><a target="_blank" href="http://github.com/johnpmorris">Github</a></p>
+            <p className="margin-b-1 medium external-link"><a target="_blank" href="http://codepen.io/Johnm__/">Codepen</a></p>
+            <p className="margin-b-1 medium external-link"><a target="_blank" href="http://www.linkedin.com/in/johnphilipmorris">Email spam</a></p>
           </div>
         </div>
       </div>
