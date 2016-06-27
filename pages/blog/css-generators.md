@@ -23,7 +23,7 @@ Have you ever wanted to use some super cool CSS3 magic but were detered by how a
 
 <br>
 
-^ This is now something like $14 a month which is complete horseshit considering its just stolen from `animate.css`, use that instead. [Dan Eden's Animate.css](http://daneden.github.io/animate.css/).  
+^ This is now something like $14 a month which is complete horseshit considering its just taken straight from `animate.css`, use that instead. [Dan Eden's Animate.css](http://daneden.github.io/animate.css/).  
 
 <br>
 

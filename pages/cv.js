@@ -33,7 +33,7 @@ export default class Sass extends React.Component {
                 <span className="medium small grey-50">Brisbane Lions AFL Club - 2013</span>
               </p>
             </div>
-            <div className="column sm-column-50 lg-column-40 sm-padding-r-6">
+            <div className="column padding-t-8 sm-padding-t-0 sm-column-50 lg-column-40 sm-padding-r-6">
               <p className="medium border-bottom serif italic">Education</p>
               <p className="grey-95">
                 <span className="block margin-t-5">Diploma of Graphic Design</span>

@@ -18,11 +18,11 @@ module.exports = React.createClass({
         </Link>
       </div>
       <div className="padding-t-10 sm-padding-t-20"></div>
-      <div className="white-bg container wide-container padding-2 padding-t-6 sm-padding-6 sm-padding-t-10">
+      <div className="white-bg container wide-container padding-3 padding-t-6 sm-padding-6 sm-padding-t-10">
          {this.props.children}
        </div>
        <footer>
-         <div className="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-3 grey-50 small medium">
+         <div className="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-4 grey-50 small medium">
            &copy; John Morris 
            <span className="block padding-t-3 sm-padding-t-0 sm-float-right grey-25">
              Made in&nbsp; 
