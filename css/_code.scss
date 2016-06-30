@@ -1,5 +1,5 @@
 code {
-  background: #f9f9f9;
+  background: lighten($color-primary, 54%);
   font-size: 86%;
   color: $color-primary;
   padding: 0.2rem 0.5rem;
@@ -8,7 +8,7 @@ code {
 }
 
 pre {
-  background: #f9f9f9;
+  background: darken(white, 5%);
 
   & > code {
     color: #666666;

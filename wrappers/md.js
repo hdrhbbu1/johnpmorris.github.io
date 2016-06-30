@@ -14,7 +14,7 @@ module.exports = React.createClass({
           <div className="container">
             <DocumentTitle title={ `Johnm  - ${ post.title } - Designer, Thinker, Maker. ` || 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
             <h1 className={`grey-95 ${ post.hideTitle ? 'hidden' : ''}`}>{post.title}</h1>
-            <p className="padding-b-5 small grey-50 medium">
+            <p className="padding-b-5 small medium">
               {post.category}
               {post.category && post.date ? ' - ' : '' }
               {post.date}

@@ -30,7 +30,7 @@ module.exports = React.createClass({
           <link rel="shortcut icon" href="/favicon.ico"/>
           {cssLink}
         </head>
-        <body className="grey-60 white-bg min-viewport-height thick-border grey-10-border">
+        <body className="grey-50 white-bg min-viewport-height thick-border grey-10-border">
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           <script src={prefixLink('/bundle.js')} />
         </body>
