@@ -35,6 +35,10 @@ export default class Sass extends React.Component {
 
           <div className="column sm-column-40 sm-padding-r-6 padding-t-5 sm-padding-t-0">
             <p className="medium grey-95"> Things I've Written </p>
+
+            <Link className="medium" to={prefixLink('blog/creating-themeable-websites-using-currentcolor/')}>Dynamic theming using currentColor</Link>
+            <p className="small">CSS, Outfit - Jul 3</p>
+
             <Link className="medium" to={prefixLink('blog/vmin-and-vmax-in-ie/')}>Using vmin and vmax in ie9+</Link>
             <p className="small">Javascript - Sep 9</p>
 

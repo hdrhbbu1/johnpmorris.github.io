@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+ <html lang="en" class="grey-10-bg"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title>Johnm  - Creating dynamically theme-able websites using CSS currentColor - Designer, Thinker, Maker. </title><link rel="shortcut icon" href="/favicon.ico"/><link rel="stylesheet" href="/styles.css"/></head><body class="grey-50 white-bg min-viewport-height thick-border grey-10-border"><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-1798687463"><div class="absolute t0 l0 padding-l-2 padding-t-1 grow" data-reactid="2"><a class="medium grey-95 no-border" href="/" data-reactid="3"><div class="asset-logo-black padding-4" data-reactid="4"> </div></a></div><div class="padding-t-10 sm-padding-t-20" data-reactid="5"></div><div class="white-bg container wide-container padding-3 padding-t-6 sm-padding-6 sm-padding-t-10" data-reactid="6"><div class="markdown" data-reactid="7"><div class="container" data-reactid="8"><!-- react-empty: 9 --><h1 class="grey-95 " data-reactid="10">Creating dynamically theme-able websites using CSS currentColor</h1><p class="padding-b-5 small medium" data-reactid="11"><!-- react-text: 12 -->CSS, Outfit<!-- /react-text --><!-- react-text: 13 --> - <!-- /react-text --><!-- react-text: 14 -->July 3rd 2016<!-- /react-text --></p><div data-reactid="15"><h2>First of all, what is currentColor?</h2>
+<p>CSS <code>currentColor</code> is exactly what is sounds like.
+It will take the elements’ current computed <code>color</code> value and allow other properties to use it.</p>
+<pre>
+<code>
+  <span class="bold">CSS currentColor value</span> <span class="green">✔ 94.7%</span> [W3C Recommendation]
+  IE <span class="red">✘ 5.5+</span> <span class="green">✔ 9+</span>
+  Edge<span class="green"> ✔</span>
+  Firefox <span class="green">✔</span>
+  Chrome <span class="green">✔</span>
+  Safari <span class="red">✘ 3.1+ </span><span class="green">✔ 4+</span>
+  Opera <span class="red">✘ 9+ </span><span class="green">✔ 9.5-9.6+</span>
+</code>
+</pre>
+<details>
+  <summary> Known Issues </summary>
+    <ul>
+      <li>IE10+ & Edge have an issue with currentColor in a linear gradient </li>
+      <li>Safari and iOS Safari 8 (maybe earlier too) have a bug with currentColor in :after/:before pseudo-content</li> 
+    </ul>
+</details>
+<br>
+<br>
+<h2>Using currentColor to create themeable content</h2>
+<p>If you set the color on the <code>html</code> or <code>body</code> elements you can pick and choose different elements to use the <code>currentColour</code> as one of their properties. If you then let people change that value, all of the elements using the <code>html</code>'s <code>currentColour</code> will update too.</p>
+<p><img src="http://2.images.southparkstudios.com/blogs/southparkstudios.com/files/2014/05/1309-butters-knowWhatSayin.jpg?quality=0.8" alt="do you know what i am saying"></p>
+<p>I’m not going to re-create the demo in this post, I’m just going to go over some of the techniques I’ve used creating it.</p>
+<p>Change the color being inlined on the <code>html</code> element below to see it in action.</p>
+<iframe class="margin-b-7" height='550' scrolling='no' src='//codepen.io/Johnm__/embed/akwbVr/?height=550&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/Johnm__/pen/akwbVr/'>Creating a theme-able website with currentColor</a> by John Morris (<a href='http://codepen.io/Johnm__'>@Johnm__</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<h2>1. Basic usage</h2>
+<p>I’m going to create a div nested inside another div, set the parent’s color to blue, and then set the child elements’ background to <code>currentColor</code>. Just so we can see what happens.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-1"</span>&gt;</span>
+  I'm blue
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-2"</span>&gt;</span>
+    da ba dee da ba die
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-selector-class">.div-1</span> {
+  <span class="hljs-attribute">color</span>: blue;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f2f2f2</span>;
+}
+
+<span class="hljs-selector-class">.div-2</span> {
+  <span class="hljs-attribute">background-color</span>: currentColor;
+}
+</code></pre>
+<style>
+  .example-1 .div-1 {
+    color: blue;
+    padding: 0.5em;
+    background: #f2f2f2;
+  }
+
+  .example-1 .div-2 {
+    background-color: currentColor;
+  }
+</style>
+<p>Aaaaand the result:</p>
+<div class="example-1 padding-b-5">
+  <div class="div-1">
+    I'm blue
+    <div class="div-2">
+      da ba dee da ba die
+    </div>
+  </div>
+</div>
+<p>Booyah.</p>
+<p>Well, it’s working, but it doesnt seem to be too useful. What’s the point of setting the background color to the text color, you can’t see anything…</p>
+<p>If we set the <code>color</code> of <code>div-2</code> to <code>white</code>, It’ll have a blue background because of its parent, and the white text will make it legible again, right?</p>
+<style>
+  .example-2 .div-1 {
+    color: blue;
+    padding: 0.5em;
+    background: #f2f2f2;
+  }
+
+  .example-2 .div-2 {
+    color: white;
+    background-color: currentColor;
+  }
+</style>
+<div class="example-2 padding-b-5">
+  <div class="div-1">
+    I'm blue
+    <div class="div-2">
+      da ba dee da ba die
+    </div>
+  </div>
+</div>
+<p>wrong.</p>
+<p>Because the color of the element has changed, so has the <code>currentColor</code> property.</p>
+<p>The way I fix this is putting a <code>span</code> inside whatever element I want to set the background of. That <code>span</code> will ensure the text stays white without changing the <code>currentColour</code> of the div with the blue background</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-1"</span>&gt;</span>
+  I'm blue
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"white"</span>&gt;</span>
+      da ba dee da ba die
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-selector-class">.div-1</span> {
+  <span class="hljs-attribute">color</span>: blue;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f2f2f2</span>;
+}
+
+<span class="hljs-selector-class">.div-2</span> {
+  <span class="hljs-attribute">background-color</span>: currentColor;
+}
+
+<span class="hljs-selector-class">.white</span> {
+  <span class="hljs-attribute">color</span>: white;
+}
+</code></pre>
+<style>
+  .example-3 .div-1 {
+    color: blue;
+    padding: 0.5em;
+    background: #f2f2f2;
+  }
+
+  .example-3 .div-2 {
+    background-color: currentColor;
+  }
+</style>
+<p>Aaaaand the result:</p>
+<div class="example-3 padding-b-5">
+  <div class="div-1">
+    I'm blue
+    <div class="div-2">
+      <span class="white">
+        da ba dee da ba die
+      </span>
+    </div>
+  </div>
+</div>
+<p>Woooo! And if the text color of div-1 changes?</p>
+<style>
+  .example-4 .div-1 {
+    color: red;
+    padding: 0.5em;
+    background: #f2f2f2;
+  }
+
+  .example-4 .div-2 {
+    background-color: currentColor;
+  }
+</style>
+<div class="example-4 padding-b-5">
+  <div class="div-1">
+    I'm blue
+    <div class="div-2">
+      <span class="white">
+        da ba de... oh. 
+      </span>
+    </div>
+  </div>
+</div>
+<p><img src="http://reactiongifs.me/wp-content/uploads/2013/09/anchorman-yes-jumping.gif" alt="oh yeah"></p>
+<p>This is essentially all I’ve done for 90% of that demo.</p>
+<br>
+<h2>Lightening and darkening the currentColor</h2>
+<p>This one would be a walk in the park in sass land with <code>lighten()</code> and <code>darken()</code>, but, we’re not in sass land. No nesting, no loops, no mixins and no color functions. But what about the button in the demo? well…</p>
+<h4><code>background-image: linear-gradient</code> to the rescue!</h4>
+<p>because gradients are background images, and an element can have both <code>background-color</code> and <code>background-image</code>, and the <code>background-image</code> always sits infront of the <code>background-color</code>, if we set the <code>background-image</code> to a <code>linear-gradient</code> that uses two identical <code>rgba()</code> values (so the gradient is a solid color) we can have a semi-transparent overlay above the color, effectively darkening it.</p>
+<p>Instead of putting a span in my earlier example and making the text white, I’m going to darken the background with a translucent gradient.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-1"</span>&gt;</span>
+  I'm not blue anymore
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-2"</span>&gt;</span>
+    and I'm somewhat legible again
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-selector-class">.div-1</span> {
+  <span class="hljs-attribute">color</span>: red;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f2f2f2</span>;
+}
+
+<span class="hljs-selector-class">.div-2</span> {
+  <span class="hljs-attribute">background-color</span>: currentColor;
+  <span class="hljs-attribute">background-image</span>: linear-gradient
+                    (-<span class="hljs-number">180deg</span>, 
+                    <span class="hljs-built_in">rgba</span>(0,0,0,0.50) <span class="hljs-number">0%</span>, 
+                    <span class="hljs-built_in">rgba</span>(0,0,0,0.50) <span class="hljs-number">100%</span>);
+}
+</code></pre>
+<style>
+  .example-5 .div-1 {
+    color: red;
+    padding: 0.5em;
+    background: #f2f2f2;
+  }
+
+  .example-5 .div-2 {
+    background-color: currentColor;
+    background-image: linear-gradient(-180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.60) 100%);
+  }
+</style>
+<div class="example-5 padding-b-5">
+  <div class="div-1">
+    I'm not blue anymore
+    <div class="div-2">
+      And I'm somewhat legible again
+    </div>
+  </div>
+</div>
+<p>This is how I created the hover states, the artwork under the hero, and the lightened and darkened sections.</p>
+<p>Instead of using 20% black, try using 80% white, or other colours and blend modes for different effects.</p>
+<p><strong>Bonus artwork demo:</strong> <br>
+four semi-transparent divs sitting in a div with a <code>currentColor</code> background giving the illusion of the color darkening</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.artwork</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">3em</span>;
+  <span class="hljs-attribute">background</span>: currentcolor }
+<span class="hljs-selector-class">.artwork</span> &gt; * {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">25%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span> }
+  <span class="hljs-selector-class">.one</span>   { <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(0,0,0,0.1) }
+  <span class="hljs-selector-class">.two</span>   { <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(0,0,0,0.3) }
+  <span class="hljs-selector-class">.three</span> { <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(0,0,0,0.5) }
+  <span class="hljs-selector-class">.four</span>  { <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(0,0,0,0.7) }
+}
+</code></pre>
+<style>
+.artwork {
+  color: red;
+  display: flex;
+  width: 100%;
+  height: 3em;
+  background: currentcolor }
+.artwork > * {
+    width: 25%;
+    height: 100% }
+  .one   { background: rgba(0,0,0,0.1) }
+  .two   { background: rgba(0,0,0,0.3) }
+  .three { background: rgba(0,0,0,0.5) }
+  .four  { background: rgba(0,0,0,0.7) }
+}
+</style>
+<div class="artwork margin-b-7">
+  <div class="one"> </div>
+  <div class="two"> </div>
+  <div class="three"> </div>
+  <div class="four"> </div>
+</div>
+<h2>Go forth and theme-ify</h2>
+<p>You can use <code>currentColor</code> to fill an SVG, set backgrounds, borders and whatever else you might want to do with it. It’s exactly the same as using a color.</p>
+<p>Fill SVG’s</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">svg</span> {
+  <span class="hljs-attribute">fill</span>: currentColor;
+}
+</code></pre>
+<p>Blend currentColor with an image</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.blend</span> {
+  <span class="hljs-attribute">background</span>: currentColor 
+              <span class="hljs-built_in">url</span>(<span class="hljs-string">'some-image.jpg'</span>) 
+              center 
+              no-repeat;
+  <span class="hljs-attribute">background-size</span>: cover;
+  <span class="hljs-attribute">background-blend-mode</span>: multiply;
+}
+</code></pre>
+<p>Set the border of an active menu item link?</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">3px</span> solid currentColor
+}
+</code></pre>
+<br>
+<p>wow, cheers for getting this far down, hope you’ve found what written useful.</p>
+<p><a href="https://twitter.com/Johnm__">Let me know if you did :)</a></p>
+</div></div></div></div><footer data-reactid="16"><div class="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-4 grey-50 small medium" data-reactid="17"><!-- react-text: 18 -->© John Morris<!-- /react-text --><span class="block padding-t-3 sm-padding-t-0 sm-float-right grey-25" data-reactid="19"><!-- react-text: 20 -->Made in <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://facebook.github.io/react/" data-reactid="21">React</a><!-- react-text: 22 --> with <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://github.com/gatsbyjs/gatsby" data-reactid="23">Gatsby</a><!-- react-text: 24 --> - <!-- /react-text --><a target="_blank" class="grey-50 external-link" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild" data-reactid="25">View Source</a></span></div></footer></div></div><script src="/bundle.js"></script></body></html>

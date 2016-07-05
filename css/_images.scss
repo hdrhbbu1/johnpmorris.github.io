@@ -1,6 +1,6 @@
 //only images in an article
 
-.post-content img {
-  max-width: 100%;
+.markdown img {
+  width: 100%;
   border: 1px solid darken(white, 10%);
 }

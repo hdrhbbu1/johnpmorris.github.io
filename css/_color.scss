@@ -10,6 +10,12 @@ $color-white: #fff;
 .white { color: $color-white; }
 .white-bg { background-color: $color-white; }
 
+$green: #7fc47c;
+.green { color: $green; }
+
+$red: #c97875;
+.red { color: $red; }
+
 $greys: 5 10 25 50 60 70 90 95;
 
 @each $i in $greys {
