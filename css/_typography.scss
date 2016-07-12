@@ -6,10 +6,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
-// adding this comment to test things
-
 // The base font-size is set at 62.5% for having the convenience
 // of sizing rems in a way that is similar to using px. 1.6rem=16px
+
+.my-new-selector { color:red; }
 
 html {
   box-sizing: border-box;
