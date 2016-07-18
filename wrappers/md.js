@@ -1,6 +1,5 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
-import moment from 'moment'
 
 module.exports = React.createClass({
   propTypes () {
@@ -9,8 +8,7 @@ module.exports = React.createClass({
     }
   },
   render () {
-    const post         = this.props.route.page.data,
-          dateReadible = moment(post.date).format("MMM Do YY")
+    const post = this.props.route.page.data
 
     return (
       <div className="markdown">
@@ -20,7 +18,7 @@ module.exports = React.createClass({
             <p className="padding-b-5 small medium">
               {post.category}
               {post.category && post.date ? ' - ' : '' }
-              {dateReadible}
+              {post.date}
             </p>
             <div dangerouslySetInnerHTML={{ __html: post.body }} />
         </div>
