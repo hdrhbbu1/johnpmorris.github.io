@@ -4,6 +4,7 @@ import { prefixLink } from 'gatsby-helpers'
 import DocumentTitle from 'react-document-title'
 import sortBy from 'lodash/sortBy'
 import access from 'safe-access'
+import moment from 'moment'
 import '../css/main.scss'
 
 export default class Sass extends React.Component {
@@ -17,13 +18,14 @@ export default class Sass extends React.Component {
       if (access(page, 'file.ext') === 'md' && access(page, 'file.dir') === 'blog') {
         const title        = access(page, 'data.title'),
               category     = access(page, 'data.category'),
-              date         = access(page, 'data.date')
+              date         = access(page, 'data.date'),
+              dateReadible = moment(date, "YYYY-MM-DD").format("LL")
         pageLinks.push(
           <p key={title} >
             <Link className="medium" to={prefixLink(page.path)}>
               {title}
             </Link>
-            <span className="small block">{category} - {date}</span>
+            <span className="small block">{category} - {dateReadible}</span>
           </p>
         )
       }
