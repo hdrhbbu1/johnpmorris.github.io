@@ -1,6 +1,6 @@
 ---
 title: 5 handy css generators
-date: March 22nd 2015
+date: 2015-3-22
 layout: blog
 category: CSS
 

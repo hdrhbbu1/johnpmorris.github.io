@@ -1,6 +1,6 @@
 ---
 title: Using vmin and vmax in ie
-date: September 9th 2015
+date: 2015-9-9
 category: Javascript
 layout: blog
 

@@ -1,7 +1,7 @@
 ---
-title: Creating dynamically theme-able websites using CSS currentColor
+title: Dynamically theme-able websites using CSS currentColor
 category: CSS, Outfit
-date: July 3rd 2016
+date: 2016-7-3
 ---
 
 ## First of all, what is currentColor? 

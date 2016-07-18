@@ -1,6 +1,6 @@
 ---
 title: Flexbox style grids with nth-child Magic.
-date: April 9th 2015
+date: 2015-4-9
 layout: blog
 category: CSS
 

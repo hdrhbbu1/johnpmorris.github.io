@@ -2,10 +2,35 @@ import React from 'react'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import DocumentTitle from 'react-document-title'
+import sortBy from 'lodash/sortBy'
+import access from 'safe-access'
+import moment from 'moment'
 import '../css/main.scss'
 
 export default class Sass extends React.Component {
   render () {
+    const pageLinks = []
+    // Sort pages.
+    const sortedPages = sortBy(this.props.route.pages, (page) =>
+      access(page, 'data.date')
+    ).reverse()
+    sortedPages.forEach((page) => {
+      console.log(page)
+      if (access(page, 'file.ext') === 'md' && access(page, 'file.dir') === 'blog') {
+        const title        = access(page, 'data.title'),
+              category     = access(page, 'data.category'),
+              date         = access(page, 'data.date'),
+              dateReadible = moment(date).format("MMM Do YY")
+        pageLinks.push(
+          <p key={title} >
+            <Link className="medium" to={prefixLink(page.path)}>
+              {title}
+            </Link>
+            <span className="small block">{category} - {dateReadible}</span>
+          </p>
+        )
+      }
+    })
     return (
       <div>
         <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
@@ -34,22 +59,8 @@ export default class Sass extends React.Component {
           </div>
 
           <div className="column sm-column-40 sm-padding-r-6 padding-t-5 sm-padding-t-0">
-            <p className="medium grey-95"> Things I've Written </p>
-
-            <Link className="medium" to={prefixLink('blog/creating-themeable-websites-using-currentcolor/')}>Dynamic theming using currentColor</Link>
-            <p className="small">CSS, Outfit - Jul 3</p>
-
-            <Link className="medium" to={prefixLink('blog/vmin-and-vmax-in-ie/')}>Using vmin and vmax in ie9+</Link>
-            <p className="small">Javascript - Sep 9</p>
-
-            <Link className="medium" to={prefixLink('blog/im-kind-of-sorry/')}>I'm kind of sorry.</Link>
-            <p className="small">User Experience - Sep 8</p>
-
-            <Link className="medium" to={prefixLink('blog/responsive-grids-with-nth-child/')}>Responsive grids with nth-child</Link>
-            <p className="small">CSS - Apr 9</p>
-
-            <Link className="medium" to={prefixLink('blog/css-generators/')}>Some handy CSS generators</Link>
-            <p className="small">CSS - Mar 22</p>
+            <p className="medium grey-95"> Things I've written </p>
+            {pageLinks}
           </div>
 
           <div className="column padding-t-6 padding-b-6 sm-padding-t-0 sm-right">

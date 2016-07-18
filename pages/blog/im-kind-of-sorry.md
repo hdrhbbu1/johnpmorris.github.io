@@ -1,6 +1,6 @@
 ---
-title: I'm Sorry (Kind of).
-date: September 8th 2015
+title: I'm Sorry (Kind of)
+date: 2015-9-8
 category: User Experience
 ---
 
