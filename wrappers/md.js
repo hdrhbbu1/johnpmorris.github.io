@@ -19,7 +19,7 @@ module.exports = React.createClass({
             <p className="padding-b-5 small medium">
               {post.category}
               {post.category && post.date ? ' - ' : '' }
-              {dateReadible}
+              {post.date ? dateReadible : ''}
             </p>
             <div dangerouslySetInnerHTML={{ __html: post.body }} />
         </div>
