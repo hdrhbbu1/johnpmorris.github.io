@@ -57,7 +57,7 @@ export default class Sass extends React.Component {
         </div>
 
         <div className="row sm-row padding-t-2">
-          <div className="column sm-column-40 sm-padding-r-6">
+          <div className="column sm-column-50 md-column-40 sm-padding-r-6">
             <p className="medium grey-95"> Things I've Made </p>
 
             <a className="medium external-link" href="http://noat.me" target="_blank">Noat</a>
@@ -76,14 +76,14 @@ export default class Sass extends React.Component {
             <p className="small">A social media project about hand lettering and typography.</p>
           </div>
 
-          <div className="column sm-column-40 sm-padding-r-6 padding-t-5 sm-padding-t-0">
+          <div className="column sm-column-50 sm-padding-r-6 padding-t-5 sm-padding-t-0 md-column-40">
             <p className="medium grey-95"> 
               Things I've written 
             </p>
             {pageLinks}
           </div>
 
-          <div className="column padding-t-6 padding-b-6 sm-padding-t-0 sm-right">
+          <div className="column padding-t-6 padding-b-6 md-padding-t-0 md-right">
             {socialLinks}
           </div>
 
