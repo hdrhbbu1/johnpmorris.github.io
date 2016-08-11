@@ -34,7 +34,7 @@ It will take the elements' current computed `color` value and allow other proper
 
 ## Using currentColor to create themeable content
 
-If you set the color on the `html` or `body` elements you can pick and choose different elements to use the `currentColour` as one of their properties. If you then let people change that value, all of the elements using the `html`'s `currentColour` will update too.  
+If you set the color on the `html` or `body` elements you can pick and choose different elements to use the `currentColor` as one of their properties. If you then let people change that value, all of the elements using the `html`'s `currentColor` will update too.  
 
 ![do you know what i am saying](http://2.images.southparkstudios.com/blogs/southparkstudios.com/files/2014/05/1309-butters-knowWhatSayin.jpg?quality=0.8)
 
@@ -124,7 +124,7 @@ wrong.
 
 Because the color of the element has changed, so has the `currentColor` property. 
 
-The way I fix this is putting a `span` inside whatever element I want to set the background of. That `span` will ensure the text stays white without changing the `currentColour` of the div with the blue background 
+The way I fix this is putting a `span` inside whatever element I want to set the background of. That `span` will ensure the text stays white without changing the `currentColor` of the div with the blue background 
 
 ```html
 <div class="div-1">
