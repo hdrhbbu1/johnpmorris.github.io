@@ -6,7 +6,8 @@ layout: blog
 Deliciously simple mobile navigation in 4 easy steps. <br> 
 No longer relient on jQuery 🙌.
 
-[View codepen demo](http://codepen.io/Johnm__/pen/OMqMmN)
+<iframe height='395' scrolling='no' src='//codepen.io/Johnm__/embed/OMqMmN/?height=395&theme-id=0&default-tab=result,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/Johnm__/pen/OMqMmN/'>OMqMmN</a> by John Morris (<a href='http://codepen.io/Johnm__'>@Johnm__</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
 
 <br>
 <br>

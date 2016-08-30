@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+ <html lang="en" class="grey-10-bg"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0"/><title>Johnm  - Recreating VSCOcam image filters with CSS blend modes - Designer, Thinker, Maker. </title><link rel="shortcut icon" href="/favicon.ico"/><link rel="stylesheet" href="/styles.css"/></head><body class="grey-50 white-bg min-viewport-height thick-border grey-10-border"><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-2131281080"><div class="absolute t0 l0 padding-l-2 padding-t-1 grow" data-reactid="2"><a class="medium grey-95 no-border" href="/" data-reactid="3"><div class="asset-logo-black padding-4" data-reactid="4"> </div></a></div><div class="padding-t-10 sm-padding-t-20" data-reactid="5"></div><div class="white-bg container wide-container padding-3 padding-t-6 sm-padding-6 sm-padding-t-10" data-reactid="6"><div class="markdown" data-reactid="7"><div class="container" data-reactid="8"><!-- react-empty: 9 --><h1 class="grey-95 " data-reactid="10">Recreating VSCOcam image filters with CSS blend modes</h1><p class="small medium" data-reactid="11"><!-- react-text: 12 -->CSS<!-- /react-text --><!-- react-text: 13 --> - <!-- /react-text --><!-- react-text: 14 -->August 23, 2016<!-- /react-text --></p><div class="padding-t-5" data-reactid="15"><p>At <a href="http://outfit.io">Outfit</a> we tend to use a lot of tricks and techniques to accomplish some pretty basic image treatments, that are extremely easy to recreate in Photoshop. Things like image brightening, adding a blend mode, saturating controls are the staple of the Photoshop domain but can be easily accomplished with CSS… Usually these involve a pretty heavy use of <code>-webkit-filter</code> , <code>background-blend-mode</code> and <code>mix-blend-mode</code>.</p>
+<p>During an <a href="http://outfit.io">Outfit</a> ‘hack day’ I wanted to see how far I could push these effects and tried to implement some of the photoshop filters that don’t have a corresponding <code>-webkit-filter</code> like <code>levels</code> for example, and ended up re-creating all of <a href="https://itunes.apple.com/au/app/vsco/id588013838?mt=8">VSCO</a>’s default image filters.</p>
+<iframe height='500' scrolling='no' src='//codepen.io/Johnm__/embed/xOZzkj/?height=500&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/Johnm__/pen/xOZzkj/'>VSCOcam Filters with CSS and blend modes</a> by John Morris (<a href='http://codepen.io/Johnm__'>@Johnm__</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p><h2 style="padding-top: 3em"> A little bit about blend modes (and why they are important) </h2></p>
+<p><a href="#why-blend-modes-are-important">I know what blend modes are John, why are they relevant?</a></p>
+<h3>1. Background blend mode</h3>
+<pre><code>✔ <span class="hljs-number">56.88</span>% ◒ <span class="hljs-number">11.28</span>%
+
+IE ✘  
+Edge ✘  
+Firefox ✘ <span class="hljs-number">2</span>+ ✔ <span class="hljs-number">30</span>+ 
+Chrome ✘ <span class="hljs-number">4</span>+ ✔ <span class="hljs-number">35</span>+ ◒ <span class="hljs-number">46</span>+² ✔ <span class="hljs-number">47</span>+ 
+Safari ✘ <span class="hljs-number">3.1</span>+ ◒ <span class="hljs-number">7.1</span>+¹ 
+Opera ✘ <span class="hljs-number">9</span>+ ✔ <span class="hljs-number">22</span>+ ◒ <span class="hljs-number">33</span>+² ✔ <span class="hljs-number">34</span>+ 
+</code></pre>
+<p>As the name suggests it simply blends the different background styles together. Simple right?</p>
+<p>You can blend your <code>background-image</code> with a <code>background-color</code> for a cool image treatment.</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.blend-background-with-color</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'face.png'</span>);
+  <span class="hljs-attribute">background-color</span>: red;
+  <span class="hljs-attribute">background-blend-mode</span>: multiply;
+}
+</code></pre>
+<div style="
+  height: 300px; width: 100%; 
+  background: red url('https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea') center center no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  margin-bottom: 4em">
+</div>
+<p>or you can blend multiple background images together for a cool double exposure effect</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.blend-images-together</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'person.png'</span>), <span class="hljs-built_in">url</span>(<span class="hljs-string">'mountain.png'</span>);
+  <span class="hljs-attribute">background-blend-mode</span>: screen;
+}
+</code></pre>
+<div style="
+  height: 500px; width: 100%;
+  -webkit-filter: grayscale(100%) contrast(1.25); 
+  background: url('https://images.unsplash.com/photo-1450562624248-869a3ec195f1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=1d5b416997fee8a5c94e6bf5ef35a847'), 
+              url('https://images.unsplash.com/photo-1440347306022-52a6c51b8dc1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8ce900c2b46e89b23ba4b8ae0ba1e689'), center center no-repeat;
+  background-size: cover;
+  background-blend-mode: screen;
+  margin-bottom: 5em">
+</div>
+<h3>2. Mix blend mode</h3>
+<pre><code>✔ <span class="hljs-number">56.85</span>% ◒ <span class="hljs-number">10.75</span>%
+
+IE ✘  
+Edge ✘  
+Firefox ✘ <span class="hljs-number">2</span>+ ✔ <span class="hljs-number">32</span>+ 
+Chrome ✘ <span class="hljs-number">4</span>+ ✘ <span class="hljs-number">29</span>+¹ ✔ <span class="hljs-number">41</span>+ 
+Safari ✘ <span class="hljs-number">3.1</span>+ ◒ <span class="hljs-number">7.1</span>+² 
+Opera ✘ <span class="hljs-number">9</span>+ ✔ <span class="hljs-number">29</span>+
+</code></pre>
+<p>Similar to <code>background-blend-mode</code> but not limited to background images, <code>mix-blend-mode</code>, defines how an element’s content should blend with its background.</p>
+<p>For example, creating the same double exposure effect with text and an image, instead of two images</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"image"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text"</span>&gt;</span>Blending is rad<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-selector-class">.text</span> { 
+  <span class="hljs-attribute">mix-blend-mode</span>: lighten;
+}
+</code></pre>
+<div style="position: relative">
+  <div style="
+    display: flex; 
+    align-items: center;
+    justify-content; center;
+    min-height: 200px;
+    width: 100%; 
+    background: url('https://hd.unsplash.com/photo-1445160307478-288488e5da27') center center no-repeat;
+    background-size: cover;"><div style="text-align: center;
+      font-weight: 900;
+      display: block;
+      width: 100%;
+      font-size: 4em;
+      color: red; 
+      mix-blend-mode: lighten">Blending is rad</div>
+  </div>
+</div>
+<br>
+<br> 
+<p><h3 id="why-blend-modes-are-important">Why these are important.</h3></p>
+<p>When I first found out about <code>background-blend-mode</code> I stumbled across <a href="http://codepen.io/bennettfeely/pen/qBJyj">this codepen demo</a> on <a href="https://css-tricks.com/basics-css-blend-modes/">this css tricks article</a> which very cleverly used <code>background-blend-mode: multiply;</code> to blend together CYMK separations to form a complete image. (How offset printing works)</p>
+<p>Hover over the demo below to see it working</p>
+<iframe height='400' scrolling='no' src='//codepen.io/bennettfeely/embed/qBJyj/?height=400&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/bennettfeely/pen/qBJyj/'>CMY/CMYK Color printing with background-blend-mode</a> by Bennett Feely (<a href='http://codepen.io/bennettfeely'>@bennettfeely</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<br>
+<p>This is the main technique behind implementing the ‘levels’ filter. (the missing filter from the CSS filter set)</p>
+<br>
+<h4>So what exactly are levels?</h4>
+<p>Essentially ‘levels’ are the varying amounts of how much red, green and blue (RGB) or how much cyan, magenta, yellow and black (CMYK) the image contains. VSCO’s filters, are for the most part, just variations of RGB levels.</p>
+<p><img src="/images/levels.png" alt="photoshop levels example"></p>
+<h4>And how do we create this with blend modes?</h4>
+<p>Not only will we need to create the RGB separations with <code>background-blend-mode</code> , we will also have to blend them all back together to get the finished image using <code>mix-blend-mode</code> , after that is done, we can change the colour that a separation is blending with to change the level of that colour in our image, creating the filters.</p>
+<br> 
+<br> 
+<h2>Step 1. Creating the RGB separations</h2>
+<p><em>For the sake of the demo and every step having a preview, I’ve omitted some basic CSS rules like dimensions and positioning</em></p>
+<p>Ok, first things first. Creating the three RGB separations.</p>
+<p>To start this off, I’ll be creating the divs that will act as my RGB separations, these will just be three divs called <code>R</code>, <code>G</code> and <code>B</code></p>
+<pre><code class="language-html"><span class="hljs-comment">&lt;!-- RGB in reverse order so R is the 'top layer' --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"b"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"g"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"r"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Each of these divs will need to have a corresponding <code>background-color</code> .</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.r</span> {  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span> }
+<span class="hljs-selector-class">.g</span> {  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#00FF00</span> }
+<span class="hljs-selector-class">.b</span> {  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#0000FF</span> }
+</code></pre>
+<div style="
+  display: flex;">
+  <div style="height: 10em; width: 33.333%; background: #00f"></div>
+  <div style="height: 10em; width: 33.333%; background: #0f0"></div>
+  <div style="height: 10em; width: 33.333%; background: #f00"></div>
+</div>
+<br>
+<br>
+<p>Cool. now that the separations are there, lets actually add an image to separate, I’ll just do this by adding a <code>background-image</code> to a class called <code>image</code> .</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"image b"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"image g"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"image r"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-comment">/* image class comes before r, g and b in the stylesheet
+   so the background shorthand doesn't override the 
+   background colors */</span>
+
+<span class="hljs-selector-class">.image</span> {
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'face.png'</span>) center center no-repeat; 
+  <span class="hljs-attribute">background-size</span>: cover;
+}
+
+<span class="hljs-selector-class">.r</span> { <span class="hljs-comment">/* ... */</span> }
+<span class="hljs-selector-class">.g</span> { <span class="hljs-comment">/* ... */</span> }
+<span class="hljs-selector-class">.b</span> { <span class="hljs-comment">/* ... */</span> }
+</code></pre>
+<div style="
+  display: flex;">
+  <div style="height: 10em; width: 33.333%; 
+    background: #00f url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;"></div>
+  <div style="height: 10em; width: 33.333%; 
+    background: #0f0 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;"></div>
+  <div style="height: 10em; width: 33.333%; 
+    background: #f00 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;"></div>
+</div>
+<br>
+<br>
+<p>Now all im going to do is blend this image with the background color that is being set by the <code>.r</code> <code>.g</code> and <code>.b</code> classes.</p>
+<p>The blend mode I’ll use is screen. To replace black with the color of the separation.</p>
+<blockquote>
+<p><em>With Screen blend mode the values of the pixels in the two layers are inverted, multiplied, and then inverted again. This yields the opposite effect to multiply. - <a href="https://en.wikipedia.org/wiki/Blend_modes#Screen">https://en.wikipedia.org/wiki/Blend_modes#Screen</a></em></p>
+</blockquote>
+<pre><code class="language-css"><span class="hljs-selector-class">.image</span> {
+  <span class="hljs-attribute">background-blend-mode</span>: screen;
+  <span class="hljs-comment">/* ... */</span>
+}
+</code></pre>
+<div style="
+  display: flex;">
+  <div style="height: 10em; width: 33.333%; 
+    background: #00f url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    background-blend-mode: screen"></div>
+  <div style="height: 10em; width: 33.333%; 
+    background: #0f0 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    background-blend-mode: screen;"></div>
+  <div style="height: 10em; width: 33.333%; 
+    background: #f00 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    background-blend-mode: screen;"></div>
+</div>
+<br>
+<br>
+<p>It’s pretty useless having these separations sit side by side, so let’s stack them all on top of each other, I’m going to do this by wrapping all of the divs in an image-wrapper class, and absolutely positioning the separations on top of each other</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"image-wrapper"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- r g and b --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-selector-class">.image-wrapper</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">400px</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.image</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>; 
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-comment">/* ... */</span>
+}
+</code></pre>
+<div style="
+  width: 100%;
+  height: 400px;
+  position: relative;">
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #00f url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    background-blend-mode: screen"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #0f0 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    background-blend-mode: screen;"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #f00 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    background-blend-mode: screen;"></div>
+</div>
+<br> 
+<p>Because our separations will always fill the <code>image-wrapper</code> you can make the <code>image-wrapper</code> whatever dimensions you want, and the image will still be a-ok.</p>
+<br>
+<br> 
+<h2>Step 2. Blending those separations together to form a whole image.</h2>
+<p>So by this time I take it you are pretty sick of that obnoxious red split, so lets blend them together to get a whole image so we can start on creating the ‘filters’.</p>
+<p>All this step is is adding a mix-blend-mode to the <code>image</code> class</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.image</span> {
+  <span class="hljs-comment">/* ... */</span> 
+  <span class="hljs-attribute">mix-blend-mode</span>: multiply;
+}
+</code></pre>
+<div style="
+  width: 100%;
+  height: 400px;
+  position: relative;">
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #00f url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #0f0 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen;"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #f00 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen;"></div>
+</div>
+<br>
+<br>
+<p>As you’ve probably noticed the image is a little heavy on the contrast, we can fix this and make it a little closer to the original by simply adding some css filters to the image-wrapper</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.image-wrapper</span> {
+  <span class="hljs-comment">/* ... */</span> 
+  <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">saturate</span>(0.8) <span class="hljs-built_in">brightness</span>(1.5) <span class="hljs-built_in">contrast</span>(0.8);
+}
+</code></pre>
+<div style="
+  width: 100%;
+  height: 400px;
+  -webkit-filter: saturate(0.8) brightness(1.5) contrast(0.8);
+  position: relative;">
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #00f url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #0f0 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen;"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #f00 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen;"></div>
+</div>
+<br>
+<br>
+<h2>Step 3. Creating the filters.</h2>
+<p>The next step is probably the easiest and at the same time, the hardest one. All I do to achieve this is add a class on the <code>body</code> ( or any element the image-wrapper is inside. ) with the name of my filter, and change the <code>background-color</code> of each of the separations are blending with and whatever filters are being applied, until the finished product looks like it does in VSCOcam.</p>
+<p>This isn’t by any means an exact science as you’ll have to do it all by eye, but you can end up with a result that looks pretty damn close with pure css.</p>
+<h4>P5 Filter in VSCO</h4>
+<p><img src="/images/vsco-ui.png" alt="vsco filter screenshots"></p>
+<h3>P5 Filter recreated in CSS</h3>
+<div style="display: flex; justify-content: space-between">
+<div style="
+  width: calc(50% - 0.7em);
+  height: 250px;
+  -webkit-filter: saturate(0.8) brightness(1.5) contrast(0.8);
+  position: relative;">
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #00f url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #0f0 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen;"></div>
+  <div style="
+    position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+    background: #f00 url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    background-blend-mode: screen;"></div>
+</div>
+  <div style="
+    width: calc(50% - 0.7em);
+    height: 250px;
+    -webkit-filter: saturate(0.8) contrast(1.2) brightness(1.2);
+    position: relative;">
+    <div style="
+      position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+      background: rgb(76, 54, 255) url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+      background-size: cover;
+      mix-blend-mode: multiply;
+      background-blend-mode: screen"></div>
+    <div style="
+      position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+      background: rgb(73, 250, 79) url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+      background-size: cover;
+      mix-blend-mode: multiply;
+      background-blend-mode: screen;"></div>
+    <div style="
+      position: absolute; top: 0; right: 0; left: 0; bottom: 0; 
+      background: rgb(193, 96, 122) url(https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea) center center no-repeat;
+      background-size: cover;
+      mix-blend-mode: multiply;
+      background-blend-mode: screen;"></div>
+  </div>
+</div>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"p5"</span>&gt;</span>
+</code></pre>
+<pre><code class="language-css"><span class="hljs-selector-class">.p5</span> <span class="hljs-selector-class">.image-wrapper</span> { <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">saturate</span>(0.8) <span class="hljs-built_in">contrast</span>(1.2) <span class="hljs-built_in">brightness</span>(1.2); }
+<span class="hljs-selector-class">.p5</span> <span class="hljs-selector-class">.b</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(76, 54, 255); }
+<span class="hljs-selector-class">.p5</span> <span class="hljs-selector-class">.g</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(73, 250, 79); }
+<span class="hljs-selector-class">.p5</span> <span class="hljs-selector-class">.r</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(193, 96, 122);}
+</code></pre>
+<br> 
+<br> 
+<p>There you have it, you can even crack open the web inspector and poke around in any of the previews throughout the post if you don’t believe its only css.</p>
+<p>I’m still not sure if this has any practical use outside of an <a href="http://outfit.io/creators">Outfit template</a> other than being a cool concept and an exercise to flex your creative CSS writing muscles.</p>
+<p>Tweet me at <a href="http://twitter.com/@johnm__">@johnm__</a> if you actually found a practical use for it, or just found it interesting, because I’d love to hear it.</p>
+</div></div></div></div><footer data-reactid="16"><div class="container wide-container sm-padding-t-13 sm-padding-6 sm-padding-b-10 padding-4 grey-50 small medium" data-reactid="17"><!-- react-text: 18 -->© John Morris<!-- /react-text --><span class="block padding-t-3 sm-padding-t-0 sm-float-right grey-25" data-reactid="19"><!-- react-text: 20 -->Made in <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://facebook.github.io/react/" data-reactid="21">React</a><!-- react-text: 22 --> with <!-- /react-text --><a target="_blank" class="grey-25 external-link" href="https://github.com/gatsbyjs/gatsby" data-reactid="23">Gatsby</a><!-- react-text: 24 --> - <!-- /react-text --><a target="_blank" class="grey-50 external-link" href="https://github.com/johnpmorris/johnpmorris.github.io/tree/react-rebuild" data-reactid="25">View Source</a></span></div></footer></div></div><script src="/bundle.js"></script></body></html>

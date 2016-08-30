@@ -46,13 +46,13 @@ export default class Sass extends React.Component {
       <div>
         <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
 
-        <div className="container grey-95 padding-b-5 sm-padding-b-20">
+        <div className="center grey-95 padding-b-5 sm-padding-b-20">
           <h1>I use colours, letters and pictures to help people understand things. </h1> 
           <p className="italic serif"> 
-            Don't hesitate to 
-            <Link className="italic margin-l-1" to={prefixLink('contact/')}>
-              Get in touch 
-            </Link>
+            Currently working&nbsp;on
+            <a className="italic margin-l-1" href="http://outfit.io">Outfit.io</a>
+            &nbsp;&nbsp;at
+            <a className="italic margin-l-1" href="http://netengine.com.au">NetEngine</a>
           </p>
         </div>
 

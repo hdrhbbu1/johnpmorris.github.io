@@ -1,7 +1,7 @@
 ---
 title: Dynamically theme-able websites using CSS currentColor
-category: CSS, Outfit
 date: 2016-7-3
+category: CSS, Outfit
 ---
 
 ## First of all, what is currentColor? 
