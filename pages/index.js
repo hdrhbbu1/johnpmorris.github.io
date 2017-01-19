@@ -47,10 +47,10 @@ export default class Sass extends React.Component {
         <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
 
         <div className="center grey-95 padding-b-5 sm-padding-b-20">
-          <h1>I use colours, letters and pictures to help people understand things. </h1>
+          <h1>I enjoy making things that people like using.</h1>
           <p className="italic serif">
-            Currently working&nbsp;on
-            <a className="italic margin-l-1" href="http://outfit.io">Outfit.io</a>
+            Currently doing that with the awesome folks over at
+            <a className="italic margin-l-1" href="http://outfit.io">Outfit</a>
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default class Sass extends React.Component {
           <div className="column sm-column-50 md-column-40 sm-padding-r-6">
             <p className="medium grey-95"> Things I've Made </p>
 
-            <a className="medium external-link" href="johnm.io/datauri" target="_blank">datauri</a>
+            <a className="medium external-link" href="/datauri" target="_blank">datauri</a>
             <p className="small">A handy single page react app for <br/>encoding an svg and spitting out a data uri</p>
 
             <a className="medium external-link" href="https://www.npmjs.com/package/hyperterm-darkwater" target="_blank">Hyperterm-darkwater</a>

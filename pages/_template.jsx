@@ -14,7 +14,7 @@ module.exports = React.createClass({
     <div>
       <div className="absolute t0 l0 padding-l-2 padding-t-1 grow">
         <Link className="medium grey-95 no-border" to="/">
-          <div className="asset-logo-black padding-4"> </div>
+          <div className="asset-logo-black padding-4"/>
         </Link>
       </div>
       <div className="padding-t-10 sm-padding-t-20"></div>
