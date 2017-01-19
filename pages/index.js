@@ -51,8 +51,6 @@ export default class Sass extends React.Component {
           <p className="italic serif">
             Currently working&nbsp;on
             <a className="italic margin-l-1" href="http://outfit.io">Outfit.io</a>
-            &nbsp;&nbsp;at
-            <a className="italic margin-l-1" href="http://netengine.com.au">NetEngine</a>
           </p>
         </div>
 
@@ -61,7 +59,7 @@ export default class Sass extends React.Component {
             <p className="medium grey-95"> Things I've Made </p>
 
             <a className="medium external-link" href="johnm.io/datauri" target="_blank">datauri</a>
-            <p className="small">A handy little generator for encoding an svg and spitting out a data uri</p>
+            <p className="small">A handy single page react app for <br/>encoding an svg and spitting out a data uri</p>
 
             <a className="medium external-link" href="https://www.npmjs.com/package/hyperterm-darkwater" target="_blank">Hyperterm-darkwater</a>
             <p className="small">A dark, flat, pastel theme for hyperterm</p>
