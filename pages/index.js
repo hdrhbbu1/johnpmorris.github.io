@@ -19,7 +19,7 @@ export default class Sass extends React.Component {
               {social.name}
             </a>
           </p>
-        )  
+        )
       })
 
     const pageLinks = []
@@ -47,8 +47,8 @@ export default class Sass extends React.Component {
         <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
 
         <div className="center grey-95 padding-b-5 sm-padding-b-20">
-          <h1>I use colours, letters and pictures to help people understand things. </h1> 
-          <p className="italic serif"> 
+          <h1>I use colours, letters and pictures to help people understand things. </h1>
+          <p className="italic serif">
             Currently working&nbsp;on
             <a className="italic margin-l-1" href="http://outfit.io">Outfit.io</a>
             &nbsp;&nbsp;at
@@ -60,9 +60,9 @@ export default class Sass extends React.Component {
           <div className="column sm-column-50 md-column-40 sm-padding-r-6">
             <p className="medium grey-95"> Things I've Made </p>
 
-            <a className="medium external-link" href="http://noat.me" target="_blank">Noat</a>
-            <p className="small"> A barebones note taking / to-do list app.</p>
-            
+            <a className="medium external-link" href="johnm.io/datauri" target="_blank">datauri</a>
+            <p className="small">A handy little generator for encoding an svg and spitting out a data uri</p>
+
             <a className="medium external-link" href="https://www.npmjs.com/package/hyperterm-darkwater" target="_blank">Hyperterm-darkwater</a>
             <p className="small">A dark, flat, pastel theme for hyperterm</p>
 
@@ -71,14 +71,11 @@ export default class Sass extends React.Component {
 
             <Link className="medium" to={prefixLink('project/hamburgler/')}>Hamburgler</Link>
             <p className="small">A simple easy to implement hamburger menu.</p>
-
-            <a className="medium external-link" target="blank" href="http://instagram.com/crandberry.co">Crandberry Co</a>
-            <p className="small">A social media project about hand lettering and typography.</p>
           </div>
 
           <div className="column sm-column-50 sm-padding-r-6 padding-t-5 sm-padding-t-0 md-column-40">
-            <p className="medium grey-95"> 
-              Things I've written 
+            <p className="medium grey-95">
+              Things I've written
             </p>
             {pageLinks}
           </div>
