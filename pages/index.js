@@ -62,13 +62,13 @@ export default class Sass extends React.Component {
             <p className="small">Challenged myself to recreate Codepen in an afternoon, pens and preferences are saved in localStorage.</p>
 
             <a className="medium external-link" href="/datauri" target="_blank">DataURI</a>
-            <p className="small">A handy single page react app for <br/>encoding an svg and spitting out a data uri</p>
+            <p className="small">A handy single page react app for <br/>encoding an SVG and spitting out a data URI.</p>
 
             <a className="medium external-link" href="https://www.npmjs.com/package/hyperterm-darkwater" target="_blank">Hyperterm-darkwater</a>
-            <p className="small">A dark, flat, pastel theme for hyperterm</p>
+            <p className="small">A dark, flat, pastel theme for hyperterm.</p>
 
             <a className="medium" href={prefixLink('readdit')}>Readdit</a>
-            <p className="small"> Playing with Reddit's json api.</p>
+            <p className="small"> Playing with Reddit's json API.</p>
 
             <Link className="medium" to={prefixLink('project/hamburgler/')}>Hamburgler</Link>
             <p className="small">A simple easy to implement hamburger menu.</p>
