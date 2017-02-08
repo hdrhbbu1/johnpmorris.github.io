@@ -58,7 +58,10 @@ export default class Sass extends React.Component {
           <div className="column sm-column-50 md-column-40 sm-padding-r-6">
             <p className="medium grey-95"> Things I've Made </p>
 
-            <a className="medium external-link" href="/datauri" target="_blank">datauri</a>
+            <a className="medium external-link" href="/code" target="_blank">Code</a>
+            <p className="small">Challenged myself to recreate Codepen in an afternoon, pens and preferences are saved in localStorage.</p>
+
+            <a className="medium external-link" href="/datauri" target="_blank">DataURI</a>
             <p className="small">A handy single page react app for <br/>encoding an svg and spitting out a data uri</p>
 
             <a className="medium external-link" href="https://www.npmjs.com/package/hyperterm-darkwater" target="_blank">Hyperterm-darkwater</a>
