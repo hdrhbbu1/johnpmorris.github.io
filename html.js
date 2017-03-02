@@ -19,7 +19,7 @@ module.exports = React.createClass({
     return (
       <html lang="en" className="grey-10-bg">
         <head>
-          <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
+          <DocumentTitle title={ 'John Morris' }></DocumentTitle>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta

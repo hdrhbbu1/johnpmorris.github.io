@@ -7,7 +7,7 @@ export default class Sass extends React.Component {
   render () {
     return (
       <div>
-        <DocumentTitle title={ 'Johnm - Curriculum Vitae - Designer, Thinker, Maker.' }></DocumentTitle>
+        <DocumentTitle title={ 'John Morris - Curriculum Vitae' }></DocumentTitle>
         <div className="container wide-container grey-95 padding-b-5">
           <h1> Cirriculum Vitae </h1>
           <p className="margin-b-11">

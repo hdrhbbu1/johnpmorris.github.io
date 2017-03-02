@@ -44,7 +44,7 @@ export default class Sass extends React.Component {
     })
     return (
       <div>
-        <DocumentTitle title={ 'Johnm - Designer, Thinker, Maker.' }></DocumentTitle>
+        <DocumentTitle title={ 'John Morris' }></DocumentTitle>
 
         <div className="center grey-95 padding-b-5 sm-padding-b-20">
           <h1>I enjoy making things that people like using.</h1>
