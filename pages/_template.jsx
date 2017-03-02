@@ -12,13 +12,13 @@ module.exports = React.createClass({
   render () {
     return (
     <div>
-      <div className="absolute t0 l0 padding-l-2 padding-t-1 grow">
+      <div className="absolute t0 l0 border-box padding-l-2 padding-t-1 grow">
         <Link className="medium grey-95 no-border" to="/">
           <div className="asset-logo-black padding-4"/>
         </Link>
       </div>
-      <div className="padding-t-10 sm-padding-t-20"></div>
-      <div className="white-bg container wide-container padding-3 padding-t-6 sm-padding-6 sm-padding-t-10">
+      <div className="padding-t-5 sm-padding-t-5"></div>
+      <div className="container wide-container padding-3 padding-t-6 sm-padding-6 sm-padding-t-10">
          {this.props.children}
        </div>
        <footer>
