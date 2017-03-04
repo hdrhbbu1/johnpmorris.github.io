@@ -18,7 +18,7 @@ module.exports = React.createClass({
         </Link>
       </div>
       <div className="padding-t-5 sm-padding-t-5"></div>
-      <div className="container wide-container padding-3 padding-t-6 sm-padding-6 sm-padding-t-10">
+      <div className="container wide-container padding-3 sm-padding-6 padding-t-10">
          {this.props.children}
        </div>
        <footer>

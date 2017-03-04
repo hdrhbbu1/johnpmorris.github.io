@@ -105,8 +105,12 @@ h6 {
 
 
 h1, .h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   line-height: 1.2;
+  @extend .serif;
+  @media screen and (max-width: 40em) {
+    font-size: 3.5rem;
+  }
 }
 
 h2, .h2 {
